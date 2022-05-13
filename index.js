@@ -41,17 +41,38 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'installation',
-        message: 'Provide a step by step guide seperated by numbers and commas to define each step.',
+        message: 'Provide a 3 step guide, (Start by typing STEP1)',
+      },
+      {
+        type: 'input',
+        name: 'installation2',
+        message: 'Pleas type the next step (STEP2)',
+      },
+      {
+        type: 'input',
+        name: 'installation3',
+        message: 'Pleas type the next step (STEP3)',
       },
       {
         type: 'input',
         name: 'credits',
-        message: 'List your collaborators, Seperate each one by using commas.',
+        message: 'Please type your full Name',
       },
       {
         type: 'input',
+        name: 'linkedIn',
+        message: 'Please add your LinkedIn link',
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'Please add your Github link:',
+      },
+      {
+        type: 'list',
         name: 'license',
-        message: 'Type the name of the license you are using:',
+        message: "select your license. (Use Arrow Keys)",
+        choices: ["GPL License", "MIT License", "Apache License 2.0", "BSD License"]
       },
       {
         type: 'input',
@@ -64,27 +85,43 @@ const promptUser = () => {
         message: 'add a message detailing how someone can fork and contribute to your project!',
       },
     ]);
+
+
+    
   };
 
-const generateREADME = ({name, link,  motivation, why, problem, learn, table, installation, credits, license, features, contribution}) =>
+const generateREADME = ({name, link,  motivation, why, problem, learn, table, installation, installation2, installation3, credits, linkedIn, github, license, features, contribution}) =>
 `# ${name}
 
 # Github Repository
 ${link}
 
-## ${motivation}
+## About this Project: 
+-${motivation}
+
 -${why}
+
 -${problem}
+
 -${learn}
 
 ## Table of Contents
 ${table}
 
-## Instalation
-${installation}
+## Instalation (How to install)
+Step 1: ${installation}
+
+Step 2: ${installation2}
+
+Step 3: ${installation3}
 
 ## Credits
-${credits}
+Created by: ${credits}
+
+LikedIn: ${linkedIn}
+
+Github: ${github}
+
 
 ## License
 ${license}
